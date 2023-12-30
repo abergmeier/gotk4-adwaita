@@ -10,22 +10,6 @@ import (
 // #include <adwaita.h>
 import "C"
 
-//export _gotk4_adw1_Toast_ConnectButtonClicked
-func _gotk4_adw1_Toast_ConnectButtonClicked(arg0 C.gpointer, arg1 C.guintptr) {
-	var f func()
-	{
-		closure := coreglib.ConnectedGeneratedClosure(uintptr(arg1))
-		if closure == nil {
-			panic("given unknown closure user_data")
-		}
-		defer closure.TryRepanic()
-
-		f = closure.Func.(func())
-	}
-
-	f()
-}
-
 //export _gotk4_adw1_Toast_ConnectDismissed
 func _gotk4_adw1_Toast_ConnectDismissed(arg0 C.gpointer, arg1 C.guintptr) {
 	var f func()
